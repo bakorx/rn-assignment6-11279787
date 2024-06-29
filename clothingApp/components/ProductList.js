@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import { addItemToCart } from './redux/actions';
 
 const products = [
-  // Your product data here
-  { id: 1, name: 'Office Wear', price: 120, image: require('./assets/office_wear.png') },
+  { id: 1, name: 'Office Wear', description: 'Office wear for your office', price: 120, image: require('./assets/office_wear.png') },
+  { id: 2, name: 'Lamerei', description: 'Recycle Boucle Knit Cardigan Pink', price: 120, image: require('./assets/lamerei.png') },
+  { id: 3, name: 'Church Wear', description: 'Recycle Boucle Knit Cardigan Pink', price: 120, image: require('./assets/church_wear.png') },
   // Add other products similarly
 ];
 
