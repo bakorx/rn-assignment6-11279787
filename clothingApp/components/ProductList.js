@@ -74,7 +74,7 @@ const ProductList = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#fff', // Ensure your background color here
+    backgroundColor: '#fff', 
   },
   container: {
     flex: 1,
