@@ -8,6 +8,10 @@ const products = [
   { id: 2, name: 'Black', description: 'Reversible angora cardigan', price: 120, image: require('../assets/dress2.png') },
   { id: 3, name: 'Church Wear', description: 'Reversible angora cardigan', price: 120, image: require('../assets/dress3.png') },
   { id: 4, name: 'Lamerei', description: 'Reversible angora cardigan', price: 120, image: require('../assets/dress4.png') },
+  { id: 4, name: '21WN', description: 'Reversible angora cardigan', price: 120, image: require('../assets/dress5.png') },
+  { id: 4, name: 'Lopo', description: 'Reversible angora cardigan', price: 120, image: require('../assets/dress6.png') },
+  { id: 4, name: '21wn', description: 'Reversible angora cardigan', price: 120, image: require('../assets/dress7.png') },
+  { id: 3, name: 'Lame', description: 'Reversible angora cardigan', price: 120, image: require('../assets/dress3.png') },
 ];
 
 const ProductList = ({ navigation }) => {
@@ -15,13 +19,15 @@ const ProductList = ({ navigation }) => {
 
   const renderItem = ({ item }) => (
     <View style={styles.product}>
-      <Image source={item.image} style={styles.image} />
+      <View style={styles.imageContainer}>
+        <Image source={item.image} style={styles.image} />
+        <TouchableOpacity style={styles.addButton} onPress={() => dispatch(addItemToCart(item))}>
+          <Text style={styles.addButtonText}>+</Text>
+        </TouchableOpacity>
+      </View>
       <Text style={styles.name}>{item.name}</Text>
       <Text style={styles.description}>{item.description}</Text>
       <Text style={styles.price}>${item.price}</Text>
-      <TouchableOpacity style={styles.addButton} onPress={() => dispatch(addItemToCart(item))}>
-        <Text style={styles.addButtonText}>+</Text>
-      </TouchableOpacity>
     </View>
   );
 
@@ -103,7 +109,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'Arial', 
   },
   titleIcons: {
     flexDirection: 'row',
@@ -127,11 +133,31 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     elevation: 2,
   },
+  imageContainer: {
+    position: 'relative',
+  },
   image: {
     width: '100%',
     height: 200,
     borderRadius: 10,
     marginBottom: 10,
+  },
+  addButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    backgroundColor: 'transparent',
+    width: 35,
+    height: 35,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#000',
+  },
+  addButtonText: {
+    color: '#000',
+    fontSize: 24,
   },
   name: {
     fontSize: 16,
@@ -146,21 +172,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#ff6347',
-  },
-  addButton: {
-    position: 'absolute',
-    bottom: 10,
-    right: 10,
-    backgroundColor: '#ff6347',
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  addButtonText: {
-    color: '#fff',
-    fontSize: 24,
   },
 });
 

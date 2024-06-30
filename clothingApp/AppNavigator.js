@@ -8,7 +8,10 @@ const Stack = createStackNavigator();
 
 const AppNavigator = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName="ProductList">
+    <Stack.Navigator
+      initialRouteName="ProductList"
+      screenOptions={{ headerShown: false }}
+    >
       <Stack.Screen name="ProductList" component={ProductList} />
       <Stack.Screen name="Checkout" component={Checkout} />
     </Stack.Navigator>
