@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, SafeAreaView } from 'react-native'; // Import SafeAreaView
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../redux/actions';
 
@@ -32,44 +32,50 @@ const ProductList = ({ navigation }) => {
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.menuButton}>
-          <Image source={require('../assets/Menu.png')} style={styles.icon} />
-        </TouchableOpacity>
-        <Image source={require('../assets/Logo.png')} style={styles.logo} />
-        <View style={styles.headerIcons}>
-          <TouchableOpacity style={styles.headerButton}>
-            <Image source={require('../assets/Search.png')} style={styles.icon} />
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity style={styles.menuButton}>
+            <Image source={require('../assets/Menu.png')} style={styles.icon} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.headerButton}>
-            <Image source={require('../assets/shoppingBag.png')} style={styles.icon} />
-          </TouchableOpacity>
+          <Image source={require('../assets/Logo.png')} style={styles.logo} />
+          <View style={styles.headerIcons}>
+            <TouchableOpacity style={styles.headerButton}>
+              <Image source={require('../assets/Search.png')} style={styles.icon} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.headerButton}>
+              <Image source={require('../assets/shoppingBag.png')} style={styles.icon} />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-      <View style={styles.titleRow}>
-        <Text style={styles.title}>OUR STORY</Text>
-        <View style={styles.titleIcons}>
-          <TouchableOpacity style={styles.titleButton}>
-            <Image source={require('../assets/Listview.png')} style={styles.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.titleButton}>
-            <Image source={require('../assets/Filter.png')} style={styles.icon} />
-          </TouchableOpacity>
+        <View style={styles.titleRow}>
+          <Text style={styles.title}>OUR STORY</Text>
+          <View style={styles.titleIcons}>
+            <TouchableOpacity style={styles.titleButton}>
+              <Image source={require('../assets/Listview.png')} style={styles.icon} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.titleButton}>
+              <Image source={require('../assets/Filter.png')} style={styles.icon} />
+            </TouchableOpacity>
+          </View>
         </View>
+        <FlatList
+          data={products}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={styles.productList}
+          numColumns={2}
+        />
       </View>
-      <FlatList
-        data={products}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={styles.productList}
-        numColumns={2}
-      />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#fff', // Ensure your background color here
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
