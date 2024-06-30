@@ -1,9 +1,8 @@
-// AppNavigator.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import ProductList from './ProductList';
-import Checkout from './Checkout';
+import ProductList from './components/ProductList';
+import Checkout from './components/Checkout';
 
 const Stack = createStackNavigator();
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItemFromCart } from './redux/actions';
+import { removeItemFromCart } from '.././redux/actions.js';
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
