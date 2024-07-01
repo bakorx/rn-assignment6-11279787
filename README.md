@@ -2,7 +2,7 @@
 # 11279787
 
 ## Overview
-This project involves creating a React Native application for a fashion store, allowing users to browse products and proceed to checkout.
+## This project involves creating a React Native application for a fashion store, allowing users to browse products and proceed to checkout.
 
 ## Design Choices
 # Product List Page
