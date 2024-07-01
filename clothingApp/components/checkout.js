@@ -44,25 +44,33 @@ const Checkout = () => {
         <View style={styles.footer}>
           <Text style={styles.totalLabel}>EST. TOTAL</Text>
           <Text style={styles.totalPrice}>${getTotalPrice()}</Text>
-          <TouchableOpacity style={styles.checkoutButton}>
-            <Text style={styles.checkoutButtonText}>CHECKOUT</Text>
-          </TouchableOpacity>
         </View>
       </View>
-      </SafeAreaView>
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navButton}>
+          <Image source={require('../assets/shoppingBag.png')} style={styles.navIcon} />
+          <Text style={styles.navText}>CHECKOUT</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingHorizontal: 20,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10,
+    paddingVertical: 10,
   },
   logo: {
     width: 120,
@@ -78,14 +86,15 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'YourCustomFont', // Use your custom font here
     textAlign: 'center',
     marginVertical: 10,
+    letterSpacing: 2,
   },
   productList: {
-    paddingHorizontal: 10,
+    paddingVertical: 10,
   },
   product: {
     flexDirection: 'row',
@@ -105,16 +114,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   name: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
+    marginBottom: 2,
+    letterSpacing: 1,
   },
   description: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#777',
-    marginVertical: 5,
+    marginBottom: 5,
   },
   price: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#ff6347',
   },
@@ -129,7 +140,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 20,
+    paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: '#ddd',
   },
@@ -142,15 +153,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ff6347',
   },
-  checkoutButton: {
+  bottomNav: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#000',
     paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
   },
-  checkoutButtonText: {
+  navButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  navIcon: {
+    width: 24,
+    height: 24,
+    marginBottom: 5,
+  },
+  navText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
 });
