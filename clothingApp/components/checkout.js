@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItemFromCart } from '../redux/actions';
 
@@ -26,28 +26,30 @@ const Checkout = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={require('../assets/Logo.png')} style={styles.logo} />
-        <TouchableOpacity style={styles.searchButton}>
-          <Image source={require('../assets/Search.png')} style={styles.icon} />
-        </TouchableOpacity>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Image source={require('../assets/Logo.png')} style={styles.logo} />
+          <TouchableOpacity style={styles.searchButton}>
+            <Image source={require('../assets/Search.png')} style={styles.icon} />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.title}>CHECKOUT</Text>
+        <FlatList
+          data={cartItems}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={styles.productList}
+        />
+        <View style={styles.footer}>
+          <Text style={styles.totalLabel}>EST. TOTAL</Text>
+          <Text style={styles.totalPrice}>${getTotalPrice()}</Text>
+          <TouchableOpacity style={styles.checkoutButton}>
+            <Text style={styles.checkoutButtonText}>CHECKOUT</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <Text style={styles.title}>CHECKOUT</Text>
-      <FlatList
-        data={cartItems}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={styles.productList}
-      />
-      <View style={styles.footer}>
-        <Text style={styles.totalLabel}>EST. TOTAL</Text>
-        <Text style={styles.totalPrice}>${getTotalPrice()}</Text>
-        <TouchableOpacity style={styles.checkoutButton}>
-          <Text style={styles.checkoutButtonText}>CHECKOUT</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+      </SafeAreaView>
   );
 };
 

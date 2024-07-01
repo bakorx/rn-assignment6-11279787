@@ -1,20 +1,43 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProductList from './components/ProductList';
 import Checkout from './components/Checkout';
+import { Ionicons } from '@expo/vector-icons'; // You can use any icon library
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => (
   <NavigationContainer>
-    <Stack.Navigator
+    <Tab.Navigator
       initialRouteName="ProductList"
-      screenOptions={{ headerShown: false }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'ProductList') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Checkout') {
+            iconName = focused ? 'cart' : 'cart-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
+      })}
     >
-      <Stack.Screen name="ProductList" component={ProductList} />
-      <Stack.Screen name="Checkout" component={Checkout} />
-    </Stack.Navigator>
+      <Tab.Screen
+        name="ProductList"
+        component={ProductList}
+        options={{ headerShown: false, title: 'Home' }}
+      />
+      <Tab.Screen
+        name="Checkout"
+        component={Checkout}
+        options={{ headerShown: false, title: 'Checkout' }}
+      />
+    </Tab.Navigator>
   </NavigationContainer>
 );
 
