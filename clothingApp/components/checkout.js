@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'YourCustomFont', // Use your custom font here
+    fontFamily: 'YourCustomFont',
     textAlign: 'center',
     marginVertical: 10,
     letterSpacing: 2,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   navIcon: {
     width: 24,
     height: 24,
-    marginRight: 5, // Add some spacing between the icon and text
+    marginRight: 5, 
   },
   navText: {
     color: '#fff',
