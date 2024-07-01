@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, SafeAreaView } from 'react-native'; // Import SafeAreaView
+import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, SafeAreaView } from 'react-native'; 
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../redux/actions';
 
