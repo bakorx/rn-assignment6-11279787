@@ -48,7 +48,7 @@ const Checkout = () => {
       </View>
       <View style={styles.bottomNav}>
         <TouchableOpacity style={styles.navButton}>
-          <Image source={require('../assets/shoppingBag.png')} style={styles.navIcon} />
+          <Image source={require('../assets/shoppingBagw.jpg')} style={styles.navIcon} />
           <Text style={styles.navText}>CHECKOUT</Text>
         </TouchableOpacity>
       </View>
@@ -161,13 +161,14 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   navButton: {
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
   navIcon: {
     width: 24,
     height: 24,
-    marginBottom: 5,
+    marginRight: 5, // Add some spacing between the icon and text
   },
   navText: {
     color: '#fff',
